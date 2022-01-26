@@ -5,7 +5,7 @@ provider "google" {
 
 terraform {
   backend "gcs" {
-    bucket = "cloud-demo-bucket-umvishwa"
+    bucket = "cloudbucket-100"
     prefix = "terraform/state"
   }
 }
