@@ -3,6 +3,6 @@ resource "google_storage_bucket" "bucket-cloud-demo2" {
   location = "us-west2"
 }
 resource "google_storage_bucket_object" "file" {
-  name   = "timages/Umesh_photos.jpg"
+  name   = "images/Umesh_photos.jpg"
   bucket = "cloud-demo-bucket-swagatika2"
 }
