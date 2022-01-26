@@ -4,6 +4,6 @@ resource "google_storage_bucket" "bucket-cloud-demo2" {
 }
 resource "google_storage_bucket_object" "file" {
   name   = "textfile"
-  source = ."file.txt"
+  source = "images/file.txt"
   bucket = "cloud-demo-bucket-swagatika2"
 }
