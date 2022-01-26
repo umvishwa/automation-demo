@@ -1,10 +1,11 @@
+terraform {
+  source = "git::ssh://git@github.com/umvishwa/automatio-demo?ref=v1.0"
+}
+
+
 resource "google_storage_bucket" "bucket-cloud-demo2" {
   name = "cloud-demo-bucket-swagatika2"
   location = "us-west2"
-}
-
-module "images" {
-  source = "github.com/mvishwa/automation-demo"
 }
 
 resource "google_storage_bucket_object" "picture" {
