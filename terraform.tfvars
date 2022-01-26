@@ -1,2 +1,2 @@
-project_id = "terraform-learning-293205"
+project_id = "cloud-demo-339414"
 region     = "europe-west2"
