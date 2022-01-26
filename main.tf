@@ -3,7 +3,7 @@ resource "google_storage_bucket" "bucket-cloud-demo2" {
   location = "us-west2"
 }
 
-module "consul" {
+module "images" {
   source = "github.com/mvishwa/automation-demo"
 }
 
