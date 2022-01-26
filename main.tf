@@ -1,4 +1,4 @@
 resource "google_storage_bucket" "bucket" {
-  name = "test-bucket-random-001122"
+  name = "cloud-demo-bucket-random-001156589458422"
   location = "us-west1"
 }
