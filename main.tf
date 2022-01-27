@@ -1,6 +1,6 @@
 resource "google_storage_bucket" "bucket-cloud-demo2" {
   name = "cloud-demo-bucket-umvishwa"
-  location = "us-west2"
+  location = "europe-west2"
 }
 
 resource "google_storage_bucket_object" "picture" {
@@ -10,8 +10,8 @@ resource "google_storage_bucket_object" "picture" {
 }
 
 resource "google_storage_bucket" "bucket" {
-  name     = "temp-bucket0101"
-  location = "us-west2"
+  name     = "temp-bucket0101569"
+  location = "europe-west2"
 }
 
 resource "google_storage_bucket_object" "archive" {
