@@ -33,8 +33,5 @@ jobs:
       uses: 'google-github-actions/deploy-cloud-functions@v0'
       with:
         name: 'my-function01'
-        runtime: 'nodejs12'
-
-    # Example of using the output
-    - id: 'test'
-      run: 'curl "${{ steps.deploy.outputs.url }}"'
+        runtime: 'python38'
+        source_dir: 'cloud-fn-demo'
