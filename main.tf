@@ -22,9 +22,9 @@ resource "google_storage_bucket_object" "archive" {
 }
 
 resource "google_cloudfunctions_function" "function" {
-  name        = "fn-cloud-demo"
+  name        = "fn-tf-cloud-demo"
   description = "My function"
-  runtime     = "python37"
+  runtime     = "python39"
   available_memory_mb   = 128
   build_environment_variables = {"GOOGLE_FUNCTION_SOURCE"="Archive/main.py"}
   source_archive_bucket = google_storage_bucket.bucket.name
