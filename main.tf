@@ -30,4 +30,5 @@ resource "google_cloudfunctions_function" "function" {
   source_archive_object = google_storage_bucket_object.archive.name
   trigger_http          = true
   entry_point           = "hello_world"
+  GOOGLE_FUNCTION_SOURCE = "main.py"
 }
