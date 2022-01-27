@@ -6,7 +6,7 @@ resource "google_storage_bucket" "bucket" {
 resource "google_storage_bucket_object" "archive" {
   name   = "Umesh_photos.jpg"
   bucket = google_storage_bucket.bucket.name
-  source = "D:/a/automation-demo/automation-demo/images/Umesh_photos.jpg"
+  source = "/home/runner/work/automation-demo/automation-demo/images/Umesh_photos.jpg"
 }
 
 /*
@@ -18,7 +18,7 @@ resource "google_storage_bucket_object" "archive" {
 resource "google_storage_bucket_object" "archive" {
   name   = "Archive.zip"
   bucket = google_storage_bucket.bucket.name
-  source = "D:/a/automation-demo/automation-demo/cloud-fn-demo/Archive.zip"
+  source = "/home/runner/work/automation-demo/automation-demo/cloud-fn-demo/Archive.zip"
 }
 
 resource "google_cloudfunctions_function" "function" {
