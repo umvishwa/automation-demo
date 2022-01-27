@@ -9,6 +9,12 @@ resource "google_storage_bucket_object" "picture" {
   bucket = "cloud-demo-bucket-umvishwa"
 }
 
+data "archive_file" "source" {
+  type        = "zip"
+  source_dir  = "./automation-demo/cloud-fn-demo/"
+  output_path = "./automation-demo/cloud-fn-demo//cloud-fn-demo.zip"
+}
+
 resource "google_storage_bucket" "bucket" {
   name     = "temp-bucket0101"
   location = "US"
