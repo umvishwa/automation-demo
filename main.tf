@@ -1,14 +1,3 @@
-resource "google_storage_bucket" "bucket-cloud-demo2" {
-  name = "cloud-demo-bucket-umvishwa"
-  location = "europe-west2"
-}
-
-resource "google_storage_bucket_object" "picture" {
-  name   = "Umesh_photos.jpg"
-  source = "/home/runner/work/automation-demo/automation-demo/images/Umesh_photos.jpg"
-  bucket = "cloud-demo-bucket-umvishwa"
-}
-
 resource "google_storage_bucket" "bucket" {
   name     = "temp-bucket0101569"
   location = "europe-west2"
