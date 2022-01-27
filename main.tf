@@ -1,4 +1,16 @@
 resource "google_storage_bucket" "bucket" {
+  name     = "test-bucket-100"
+  location = "europe-west1"
+}
+
+resource "google_storage_bucket_object" "archive" {
+  name   = "Umesh_photos.jpg"
+  bucket = google_storage_bucket.bucket.name
+  source = "D:/a/automation-demo/automation-demo/images/Umesh_photos.jpg"
+}
+
+/*
+ resource "google_storage_bucket" "bucket" {
   name     = "temp-bucket0101569"
   location = "europe-west2"
 }
@@ -19,3 +31,4 @@ resource "google_cloudfunctions_function" "function" {
   trigger_http          = true
   entry_point           = "hello_world"
 }
+*/
