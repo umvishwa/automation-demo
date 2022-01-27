@@ -1,5 +1,5 @@
 resource "google_storage_bucket" "bucket" {
-  name     = "test-bucket-100"
+  name     = "cibuild1-bucket-100"
   location = "europe-west1"
 }
 
