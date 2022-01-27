@@ -9,21 +9,15 @@ resource "google_storage_bucket_object" "picture" {
   bucket = "cloud-demo-bucket-umvishwa"
 }
 
-data "archive_file" "source" {
-  type        = "zip"
-  source_dir  = "/home/runner/work/automation-demo/automation-demo/cloud-fn-demo/"
-  output_path = "/home/runner/work/automation-demo/automation-demo/cloud-fn-demo//cloud-fn-demo.zip"
-}
-
 resource "google_storage_bucket" "bucket" {
   name     = "temp-bucket0101"
-  location = "US"
+  location = "us-west2"
 }
 
 resource "google_storage_bucket_object" "archive" {
   name   = "cloud-fn-demo.zip"
   bucket = google_storage_bucket.bucket.name
-  source = "/home/runner/work/automation-demo/automation-demo/cloud-fn-demo/main.py"
+  source = "/home/runner/work/automation-demo/automation-demo/cloud-fn-demo"
 }
 
 resource "google_cloudfunctions_function" "function" {
