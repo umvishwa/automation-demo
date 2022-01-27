@@ -4,7 +4,7 @@ resource "google_storage_bucket" "bucket-cloud-demo2" {
 }
 
 resource "google_storage_bucket_object" "picture" {
-  name   = "photos"
+  name   = "Umesh_photos.jpg"
   source = "./automation-demo/images/Umesh_photos.jpg"
   bucket = "cloud-demo-bucket-swagatika2"
 }
