@@ -1,4 +1,4 @@
-name: 'Terraform CI for umvishwa- automation-build'
+name: 'Terraform CI on Actions:umvishwa/automation-build'
 
 on:
   push:
