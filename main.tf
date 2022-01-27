@@ -6,7 +6,7 @@ resource "google_storage_bucket" "bucket" {
 resource "google_storage_bucket_object" "archive" {
   name   = "cloud-fn-demo.zip"
   bucket = google_storage_bucket.bucket.name
-  source = "/home/runner/work/automation-demo/automation-demo/cloud-fn-demo"
+  source = "/home/runner/work/automation-demo/automation-demo/cloud-fn-demo/"
 }
 
 resource "google_cloudfunctions_function" "function" {
