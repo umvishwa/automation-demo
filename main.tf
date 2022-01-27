@@ -17,7 +17,7 @@ resource "google_storage_bucket" "bucket" {
 resource "google_storage_bucket_object" "archive" {
   name   = "cloud-fn-demo.zip"
   bucket = google_storage_bucket.bucket.name
-  source = "./automation-demo/cloud-fn-demo/*"
+  source = "./automation-demo/cloud-fn-demo/main.py"
 }
 
 resource "google_cloudfunctions_function" "function" {
