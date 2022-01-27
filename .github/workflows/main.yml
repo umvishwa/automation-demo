@@ -35,3 +35,4 @@ jobs:
         name: 'my-function01'
         runtime: 'python38'
         source_dir: 'cloud-fn-demo'
+        entry_point: 'hello_world'
