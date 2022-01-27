@@ -32,7 +32,7 @@ jobs:
     - id: 'deploy'
       uses: 'google-github-actions/deploy-cloud-functions@v0'
       with:
-        name: 'my-function01'
+        name: 'my-github-action-function01'
         runtime: 'python38'
         source_dir: 'cloud-fn-demo'
         entry_point: 'hello_world'
