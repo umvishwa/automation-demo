@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       branch: ${{ steps.extract_branch.outputs.branch }}
-
+      run: echo "::set-output name=branch::$(echo ${GITHUB_REF#refs/heads/})"
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps: 
     - uses: actions/checkout@v2
