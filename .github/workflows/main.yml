@@ -6,9 +6,9 @@ name:  GitHUB Action CI using gcloud-setup library
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [ main , dev01 ]
   pull_request:
-    branches: [ dev01 ]
+    branches: [ main , dev01 ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
