@@ -53,7 +53,7 @@ jobs:
   deploy-main:
     needs: build 
     runs-on: ubuntu-latest
-    if: ${{needs.build.steps.branch}} == 'main'
+    if: contains(github.ref, 'main')
     environment: main
     steps:
     - uses: actions/checkout@v2
