@@ -1,0 +1,15 @@
+substitutions:
+  _REGION: europe-west1
+
+steps:
+  - id: 'Write env to file'
+    name: 'alpine'
+    entrypoint: 'sh'
+    args:
+    - '-c'
+    - |
+        env | sort
+        echo "***********************"
+        echo "branch_name - $BRANCH_NAME"
+        echo "base branch - $_BASE_BRANCH"
+        echo "project_id  - $PROJECT_ID"
