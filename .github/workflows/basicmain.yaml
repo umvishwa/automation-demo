@@ -18,7 +18,7 @@ jobs:
   deploy-dev01:
     needs: build 
     runs-on: ubuntu-latest
-    if: ${{ github.event.push.base.ref }} == 'dev01'
+    if: contains(github.ref, "dev01")
     environment: dev01
     steps:
     - uses: actions/checkout@v2
