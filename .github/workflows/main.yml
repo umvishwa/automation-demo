@@ -27,7 +27,7 @@ jobs:
       uses: google-github-actions/auth@v0
       with:
         if: ${{ needs.build.outputs.branch == 'dev01' }}
-        credentials_json_dev01: '${{ secrets.GOOGLE_CREDENTIALS }}' 
+        credentials_json: '${{ secrets.GOOGLE_CREDENTIALS_DEV01 }}' 
 
     - id: 'deploy'
       uses: 'google-github-actions/deploy-cloud-functions@v0'
