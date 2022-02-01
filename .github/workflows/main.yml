@@ -22,7 +22,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps: 
-    - uses: actions/checkout@v2
+  #  - uses: actions/checkout@v2
 
     - id: 'Branch Details'
       name: 'alpine'
@@ -36,7 +36,7 @@ jobs:
           echo "Base Branch - $_BASE_BRANCH"
           echo "Project_Id  - $PROJECT_ID"
           echo "***********************"
-
+/*
     - id: auth
       uses: google-github-actions/auth@v0
       with:
@@ -49,3 +49,4 @@ jobs:
         runtime: 'python38'
         source_dir: 'cloud-fn-demo'
         entry_point: 'hello_world'
+*/
