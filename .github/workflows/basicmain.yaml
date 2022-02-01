@@ -18,9 +18,7 @@ jobs:
   deploy-dev01:
     needs: build 
     runs-on: ubuntu-latest
-    name: Set env.BRANCH
-      run: echo "BRANCH=$(echo $GITHUB_REF | cut -d'/' -f 3)"
-    if: env.BRANCH == 'dev01'
+    if: ${{ github.event.push.base.ref }} == 'dev01'
     environment: dev01
     steps:
     - uses: actions/checkout@v2
