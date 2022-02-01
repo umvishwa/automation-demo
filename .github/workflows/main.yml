@@ -22,6 +22,19 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+     - id: 'Branch Details'
+       name: 'alpine'
+       entrypoint: 'sh'
+       args:
+         - '-c'
+         - |
+           env | sort
+           echo "***********************"
+           echo "Branch_Name - $BRANCH_NAME"
+           echo "Base Branch - $_BASE_BRANCH"
+           echo "Project_Id  - $PROJECT_ID"
+           echo "***********************"
+    
     - uses: actions/checkout@v2
 
     - id: auth
