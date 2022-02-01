@@ -34,3 +34,18 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      
+      - id: 'Branch Details'
+        name: 'alpine'
+        entrypoint: 'sh'
+        args:
+          - '-c'
+          - |
+            env | sort
+            echo "***********************"
+            echo "Branch_Name - $BRANCH_NAME"
+            echo "Base Branch - $_BASE_BRANCH"
+            echo "Project_Id  - $PROJECT_ID"
+            echo "***********************" 
+      
+      
