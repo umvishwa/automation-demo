@@ -6,7 +6,7 @@ name:  GitHUB Action CI using gcloud-setup library
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [ dev01 ]
   pull_request:
     branches: [ main ]
 
@@ -23,11 +23,6 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps: 
     - uses: actions/checkout@v2
-          echo "***********************"
-          echo "Branch_Name - $BRANCH_NAME"
-          echo "Base Branch - $_BASE_BRANCH"
-          echo "Project_Id  - $PROJECT_ID"
-          echo "***********************"
 
     - id: auth
       uses: google-github-actions/auth@v0
