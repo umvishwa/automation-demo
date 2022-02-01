@@ -1,0 +1,86 @@
+name: Build and deploy our application
+
+on:
+  push:
+    branches: [ dev01, main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      branch: ${{ steps.extract_branch.outputs.branch }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Extract branch name
+        shell: bash
+        run: echo "::set-output name=branch::$(echo ${GITHUB_REF#refs/heads/})"
+    
+  deploy-dev01:
+    needs: build 
+    runs-on: ubuntu-latest
+    #if: ${{ needs.build.outputs.branch == 'dev01' }}
+    environment: dev01
+    steps:
+    - uses: actions/checkout@v2
+    - id: auth
+      uses: google-github-actions/auth@v0
+      with:
+        credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}' 
+    - id: 'deploy'
+      uses: 'google-github-actions/deploy-cloud-functions@v0'
+      with:
+        name: 'my-github-fn-dev01'
+        description: 'cloud function for demo'
+        runtime: 'python39'
+        source_dir: './cloud-fn-demo/'
+        entry_point: 'hello_world'
+        region: 'europe-west2'
+        #service_account_email: '$GCLOUD_PROJECT@appspot.gserviceaccount.com'
+        #event_trigger_type: 'google.pubsub.topic.publish'
+        #event_trigger_resource: 'projects/$GCLOUD_PROJECT/topics/pd-github-demo'
+        #event_trigger_service: 'pubsub.googleapis.com'
+       #env_vars: 'KEY1=VALUE1,KEY2=VALUE2'
+        #event_trigger_retry: true
+        #env_vars_file: './tests/env-var-files/test.good.yaml'
+        #build_environment_variables: 'FOO=bar, ZIP=zap'
+        #build_environment_variables_file: './tests/env-var-files/test.good.yaml'
+        #secret_environment_variables: 'FOO=${{ secrets.DEPLOY_CF_SECRET_VERSION_REF }},BAR=${{ secrets.DEPLOY_CF_SECRET_REF }}'
+        #secret_volumes: '/etc/secrets/foo=${{ secrets.DEPLOY_CF_SECRET_VERSION_REF }}'
+        min_instances: 2
+        max_instances: 5
+        timeout: 300
+
+  deploy-main:
+    needs: build 
+    runs-on: ubuntu-latest
+    #if: ${{ needs.build.outputs.branch == 'main' }}
+    environment: main
+    steps:
+    - uses: actions/checkout@v2
+    - id: auth
+      uses: google-github-actions/auth@v0
+      with:
+        credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}' 
+    - id: 'deploy'
+      uses: 'google-github-actions/deploy-cloud-functions@v0'
+      with:
+        name: 'my-github-fn-main'
+        description: 'cloud function for demo'
+        runtime: 'python39'
+        source_dir: './cloud-fn-demo/'
+        entry_point: 'hello_world'
+        region: 'europe-west2'
+        #service_account_email: '$GCLOUD_PROJECT@appspot.gserviceaccount.com'
+        #event_trigger_type: 'google.pubsub.topic.publish'
+        #event_trigger_resource: 'projects/$GCLOUD_PROJECT/topics/pd-github-demo'
+        #event_trigger_service: 'pubsub.googleapis.com'
+       #env_vars: 'KEY1=VALUE1,KEY2=VALUE2'
+        #event_trigger_retry: true
+        #env_vars_file: './tests/env-var-files/test.good.yaml'
+        #build_environment_variables: 'FOO=bar, ZIP=zap'
+        #build_environment_variables_file: './tests/env-var-files/test.good.yaml'
+        #secret_environment_variables: 'FOO=${{ secrets.DEPLOY_CF_SECRET_VERSION_REF }},BAR=${{ secrets.DEPLOY_CF_SECRET_REF }}'
+        #secret_volumes: '/etc/secrets/foo=${{ secrets.DEPLOY_CF_SECRET_VERSION_REF }}'
+        min_instances: 2
+        max_instances: 5
+        timeout: 300
