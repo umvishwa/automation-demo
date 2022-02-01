@@ -13,12 +13,12 @@ jobs:
       - uses: actions/checkout@v2
       - name: Extract branch name
         shell: bash
-        run: echo "set-output name=branch $(echo ${GITHUB_REF#refs/heads/})"
+        run: echo "BRANCH=$(echo $GITHUB_REF | cut -d'/' -f 3)"
     
   deploy-dev01:
     needs: build 
     runs-on: ubuntu-latest
-    if: $GITHUB_REF == 'dev01'
+    if: ${{ needs.build.outputs.branch == 'dev01'}}
     environment: dev01
     steps:
     - uses: actions/checkout@v2
@@ -53,7 +53,7 @@ jobs:
   deploy-main:
     needs: build 
     runs-on: ubuntu-latest
-    if: $GITHUB_REF == 'main'
+    if: ${{ needs.build.outputs.branch == 'main'}}
     environment: main
     steps:
     - uses: actions/checkout@v2
