@@ -1,5 +1,5 @@
 def hello_world(request):
-    """Responds to any HTTP request. comment
+    """Responds to any HTTP request
     Args:
         request (flask.Request): HTTP request object.
     Returns:
