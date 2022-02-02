@@ -3,12 +3,12 @@ name: Build and deploy our application
 on:
   push:
     branches: [ dev01, main]
-
+    paths:
+    - '.github/workflows/basicmain.yaml'
+    
 jobs:
   build:
     runs-on: ubuntu-latest
-    #outputs:
-      #branch: $(echo $GITHUB_REF | cut -d'/' -f 3)"
     steps:
       - uses: actions/checkout@v2
       - name: Extract branch name
