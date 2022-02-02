@@ -16,7 +16,7 @@ jobs:
         run: echo "BRANCH=$(echo $GITHUB_REF | cut -d'/' -f 3)"
     
   deploy-dev01:
-    #needs: build 
+    needs: build 
     runs-on: ubuntu-latest
     if: contains(github.ref, 'dev01')
     environment: dev01
@@ -51,7 +51,7 @@ jobs:
         timeout: 300
 
   deploy-main:
-    #needs: build 
+    needs: build 
     runs-on: ubuntu-latest
     if: contains(github.ref, 'main')
     environment: main
