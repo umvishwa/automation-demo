@@ -22,6 +22,15 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - name: Set env to dev01
+      if: endsWith(github.ref, '/dev01')
+      run: |
+        echo "Project_id=cloud-demo-02" >> $GITHUB_ENV
+    - name: Set env to main
+      if: endsWith(github.ref, '/main')
+      run: |
+       echo "Project_id=cloud-demo-339414" >> $GITHUB_ENV
+    
     - uses: actions/checkout@v2  
     
     - id: auth
@@ -36,4 +45,5 @@ jobs:
         runtime: 'python38'
         source_dir: 'cloud-fn-demo'
         entry_point: 'hello_world'
+        project_id : '${{env.project_id}}' 
 
