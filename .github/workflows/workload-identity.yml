@@ -31,9 +31,6 @@ jobs:
         workload_identity_provider: ' projects/439726687642/locations/global/workloadIdentityPools/gcloudpool//providers/gcloudproviders'
         service_account: 'sa-for-cloud-demo@cloud-demo-339414.iam.gserviceaccount.com'
     
-    - name: Checkout
-      uses: actions/checkout@v2
-
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1.3.2
