@@ -5,7 +5,7 @@ provider "google" {
 
 terraform {
   backend "local" {
-    path:'./terraform/state'
+    path = './terraform/state'
     #bucket = "cloud-bucket-100"
     #prefix = "terraform/state"
   }
