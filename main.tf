@@ -11,10 +11,10 @@ resource "google_storage_bucket_object" "archive" {
 */
 
 resource "google_storage_bucket" "bucket" {
-  name     = "temp-bucket0101569"
+  name     = "temp-bucket01015690"
   location = "europe-west2"
 }
-
+/*
 resource "google_storage_bucket_object" "archive" {
   name   = "Archive.zip"
   bucket = google_storage_bucket.bucket.name
@@ -32,4 +32,5 @@ resource "google_cloudfunctions_function" "function" {
   trigger_http          = true
   entry_point           = "hello_world"
 }
+*/
 
