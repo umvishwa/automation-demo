@@ -52,4 +52,4 @@ jobs:
 
    # Apply an execution plan for Terraform  
     - name: Terraform Apply
-      run: terraform apply -auto-approve
+      run: terraform apply -auto-approve -lock=false
