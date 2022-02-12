@@ -4,8 +4,9 @@ provider "google" {
 }
 
 terraform {
-  backend "gcs" {
-    bucket = "cloud-bucket-100"
-    prefix = "terraform/state"
+  backend "local" {
+    path:'./terraform/state'
+    #bucket = "cloud-bucket-100"
+    #prefix = "terraform/state"
   }
 }
