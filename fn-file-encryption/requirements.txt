@@ -1,0 +1,6 @@
+# Function dependencies, for example:
+# package>=version
+python-gnupg
+google-cloud-storage
+google-cloud-secret-manager
+google-cloud-datastore
